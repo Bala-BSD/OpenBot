@@ -1,0 +1,107 @@
+# BrandStory skill sketch. Naming a tool here GRANTS NOTHING — admin must connect
+# connectors and grant tools to Bots. Keep fintech document skills + BrandStory ones.
+skills:
+  - slug: find-a-document
+    title: Find a document
+    summary: Search connected Drive sources for a file and read what it says.
+    instructions: >-
+      Find the document before answering about its contents. Search first, then read.
+      If nothing matches, say what you searched. Name the document you used.
+    tools:
+      - google-drive/search_files
+      - google-drive/read_file_content
+      - google-drive/get_file_metadata
+
+  - slug: find-a-notion-page
+    title: Find a Notion page
+    summary: Search Notion for a page and read what it says.
+    instructions: >-
+      Search Notion first, then fetch the page. If nothing matches, say so. Name the page.
+    tools:
+      - notion/notion-search
+      - notion/notion-fetch
+
+  - slug: whats-changed
+    title: What changed recently
+    summary: List recently changed documents and who changed them.
+    instructions: >-
+      List recent changes newest first: name, who, when. Do not summarise contents unless asked.
+    tools:
+      - google-drive/list_recent_files
+      - google-drive/get_file_metadata
+
+  - slug: who-owns-this
+    title: Who owns this
+    summary: Find who owns a document and when they last touched it.
+    instructions: >-
+      Identify owner and last change. If several match, list them rather than picking one.
+    tools:
+      - google-drive/search_files
+      - google-drive/get_file_metadata
+
+  - slug: check-a-claim
+    title: Check a claim against a source
+    summary: Check a statement against what documents actually say.
+    instructions: >-
+      Support, contradict, or does-not-address — with a quote. Never fill gaps from memory.
+    tools:
+      - google-drive/search_files
+      - google-drive/read_file_content
+
+  - slug: skill-creator
+    title: Write a skill
+    summary: Interview me about a skill, write it, and save it as a new / command.
+    instructions: |-
+      Interview first, write second, save only what the person agreed to.
+      A skill is slug, title, summary, instructions, optional tools refs.
+      Call list_skills before naming a slug. Prefer improving an existing skill over duplicates.
+
+  - slug: bot-creator
+    title: Make a coworker
+    summary: Interview me and save a new coworker configuration.
+    instructions: |-
+      Interview for name, title, role, must-not-do, and skills. Save only after confirmation.
+      Prefer specialists over one mega-bot.
+
+  - slug: seo-brief
+    title: SEO brief
+    summary: Produce a BrandStory SEO/GEO brief from a brand or URL ask.
+    instructions: >-
+      Produce: target queries, intent, competitor angles, technical checklist, content outline
+      hooks, and measurement gaps. Never invent ranks or traffic. Prefer connected SEO tools
+      when granted; otherwise say what data is missing.
+
+  - slug: reels-script
+    title: Reels script package
+    summary: Write a BrandStory Reels script with Frame|Time|VO|OST lock table.
+    instructions: >-
+      Output hook, beat sheet, Frame|Time|VO|OST table, CTA, director note (~2 pages).
+      Respect Design MD / brand kit when available. No fake endorsements or unverified claims.
+
+  - slug: deck-guardrails
+    title: Deck Guardrails review
+    summary: Review a slide map against Presentation Guardrails v1.1.
+    instructions: >-
+      Apply precedence: user instruction → Design.MD → campaign deck → brand assets → objective →
+      delivery. Return severity-tagged findings with fixes. Do not invent brand tokens.
+
+  - slug: brand-voice-check
+    title: Brand voice check
+    summary: Check copy against BrandStory or client voice docs.
+    instructions: >-
+      Find the voice doc first. Flag tone mismatches with a rewrite suggestion. If no voice doc,
+      say so and give neutral edits only.
+
+  - slug: handoff-checklist
+    title: Handoff checklist
+    summary: Turn work into an ops handoff checklist.
+    instructions: >-
+      Emit owner | artifact | status rows, blockers, and Definition of Done.
+      Use BrandName_Content/<Content_Name>/ Drive patterns when relevant. Do not send messages.
+
+  - slug: oss-scout
+    title: OSS scout
+    summary: Find open-source repos to adapt in Cursor and deploy on Git.
+    instructions: >-
+      For each candidate report URL, SPDX license, activity, stack, Cursor adapt fit, and risks.
+      Prefer MIT/Apache-2.0/BSD; call out copyleft and unclear licenses. Never invent license terms.

@@ -1,0 +1,7 @@
+# Declares roots to index once Google Drive / OneDrive connectors are connected.
+# Replace folder names with your real BrandStory Drive structure.
+sources:
+  - type: google-drive
+    roots: [BrandStory_Playbooks, Client_Briefs, Brand_Assets]
+  - type: microsoft-onedrive
+    roots: [Delivery, SEO_Research]

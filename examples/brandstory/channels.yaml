@@ -1,0 +1,36 @@
+channels:
+  - id: general-assistant
+    name: Studio Desk
+    description: Everyday BrandStory work — drafts, research, and coworker setup.
+    permitted_agents: [general-assistant]
+    allowed_groups: [all]
+
+  - id: brand-knowledge
+    name: Brand Knowledge
+    description: Answers from BrandStory playbooks and client docs (with citations).
+    permitted_agents: [knowledge]
+    allowed_groups: [all]
+
+  - id: seo-geo
+    name: SEO & GEO
+    description: Keyword, technical, on-page, and content SEO workflows.
+    permitted_agents: [seo-strategist, content-seo]
+    allowed_groups: [seo, delivery]
+
+  - id: reels-content
+    name: Reels & Content
+    description: Short-form scripts, storyboards, and brand-safe reel briefs.
+    permitted_agents: [reels-director]
+    allowed_groups: [creative, delivery]
+
+  - id: decks-handoff
+    name: Decks & Handoff
+    description: Presentation Guardrails checks and ops handoffs.
+    permitted_agents: [deck-guard, ops-handoff]
+    allowed_groups: [tech, ops, all]
+
+  - id: open-source
+    name: Open Source Scout
+    description: Find OSS to adapt in Cursor and deploy on Git; license notes included.
+    permitted_agents: [oss-scout, research-desk]
+    allowed_groups: [tech, all]

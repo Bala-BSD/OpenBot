@@ -1,0 +1,6 @@
+# Match whatever model credential you put in .env / the vault.
+# Fintech example used gpt-5.6-terra; pin what your Intelligence + provider support.
+model:
+  provider: openai
+  credential_secret_ref: openai-api-key
+  default_model: gpt-4.1

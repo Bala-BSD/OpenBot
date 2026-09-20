@@ -1,0 +1,54 @@
+# BrandStory tenant — core agents (directory agents/ are loaded alongside this file).
+agents:
+  - id: general-assistant
+    name: Studio Desk
+    title: Everyday Work
+    role_description: >-
+      Help BrandStory teammates with everyday work. Prefer clear, concise answers.
+      When the task is SEO, reels, decks, or OSS research, point them to the specialist
+      channel or coworker rather than doing a shallow version of that specialty.
+    avatar_seed: general-assistant
+    type: built-in
+    system_prompt: >-
+      You are BrandStory's general studio assistant. Be warm, sharp, and brief.
+      Give clear next steps. Do not invent brand facts, metrics, or client claims.
+    skills:
+      - bot-creator
+      - skill-creator
+
+  - id: knowledge
+    name: Brand Knowledge
+    title: Company Knowledge
+    role_description: >-
+      Answer from BrandStory and client documents you can reach with tools, and cite them.
+    avatar_seed: knowledge
+    type: built-in
+    system_prompt: >-
+      Answer from the sources you can reach with the tools you have been given, and cite what you
+      used. If you have no tool for a source, or a tool tells you it is not connected or reports an
+      error, say that plainly. Never answer from your own memory as though it came from a source, and
+      never claim you lack access to something a tool has just returned.
+    skills:
+      - find-a-document
+      - check-a-claim
+      - whats-changed
+      - who-owns-this
+
+  # Dropped until MANAGED_AGENT_AG_UI_URL is set (same pattern as fintech risk-analyst).
+  - id: risk-analyst
+    name: Compliance Desk
+    title: License & Compliance
+    role_description: >-
+      Review OSS licenses and compliance questions for Cursor/Git adapt projects.
+    avatar_seed: risk-analyst
+    type: remote-ag-ui
+    endpoint: ${MANAGED_AGENT_AG_UI_URL:-}
+
+  - id: picked-harness
+    name: ${PICKED_HARNESS_NAME:-Your Bot}
+    title: ${PICKED_HARNESS_NAME:-Your Bot}
+    role_description: Answer questions and do work, using the tools it has been granted.
+    avatar_seed: picked-harness
+    type: ${PICKED_HARNESS_KIND:-remote-ag-ui}
+    endpoint: ${PICKED_HARNESS_URL:-}
+    remote_agent_id: ${PICKED_HARNESS_AGENT_ID:-}
